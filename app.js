@@ -22,7 +22,7 @@ app.use('/wiki', wiki)
 app.use('/users', users)
 
 app.get('/', (req, res, next) => {
-    res.send(layout());
+  res.redirect('/wiki');
 })
 
 db.authenticate()
@@ -33,18 +33,18 @@ db.authenticate()
 
 
 const init = async () => {
-    await  db.sync( {force: true} )
-    //await  Page.sync( {force: true} )
-    //await  User.sync( {force: true} )
-    console.log('hi')
+  await db.sync({ force: true })
+  //await  Page.sync( {force: true} )
+  //await  User.sync( {force: true} )
+  console.log('hi')
 
-   
+
 }
-    
+
 
 init()
 
 app.listen(PORT, () => {
-    console.log(`listening from ${PORT}`)
+  console.log(`listening from ${PORT}`)
 })
 
